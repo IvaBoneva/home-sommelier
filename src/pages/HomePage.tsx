@@ -1,10 +1,33 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 import MoodCard from "../components/MoodCard";
 import { moods } from "../utils/moods";
+import { useAddMoodEntry } from "../hooks/useAddMoodEntry";
 import type { Mood } from "../types/mood";
 
 function HomePage() {
   const [selectedMood, setSelectedMood] = useState<Mood | null>(null);
+  const [note, setNote] = useState("");
+  const navigate = useNavigate();
+  const { mutate: addMoodEntry, isPending, isError } = useAddMoodEntry();
+
+  const handleSubmit = () => {
+    if (!selectedMood) return;
+
+    addMoodEntry(
+      {
+        moodId: selectedMood.id,
+        note: note.trim(),
+        createdAt: new Date().toISOString(),
+      },
+      {
+        onSuccess: () => navigate(`/recommendations?mood=${selectedMood.id}`),
+      },
+    );
+  };
 
   return (
     <div>
@@ -26,11 +49,31 @@ function HomePage() {
         ))}
       </div>
 
-      {selectedMood && (
-        <p className="text-center mt-6">
-          Избра: {selectedMood.emoji} {selectedMood.label}
-        </p>
-      )}
+      <div className="max-w-xl mx-auto mt-8 flex flex-col gap-4">
+        <TextField
+          label="Бележка за деня (по желание)"
+          placeholder="Например: дълъг ден в университета…"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          multiline
+          minRows={2}
+        />
+
+        {isError && (
+          <Alert severity="error">
+            Не успяхме да запишем настроението. Пуснат ли е сървърът?
+          </Alert>
+        )}
+
+        <Button
+          variant="contained"
+          size="large"
+          disabled={!selectedMood || isPending}
+          onClick={handleSubmit}
+        >
+          {isPending ? "Записваме…" : "Подбери ми вечер"}
+        </Button>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,12 @@
 {
   "favorites": [],
-  "moods": []
+  "moods": [
+    {
+      "moodId": "relaxed",
+      "note": "След дълъг ден в работа на компютъра, искам да се отпусна.",
+      "createdAt": "2026-11-12T15:47:49.313Z",
+      "id": "5YFpd9zaCxk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
