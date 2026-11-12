@@ -16,3 +16,14 @@ export interface TmdbPagedResponse<T> {
   total_pages: number;
   total_results: number;
 }
+
+export interface Genre {
+  id: number;
+  name: string;
+}
+
+export interface MovieDetails extends Omit<Movie, "genre_ids"> {
+  genres: Genre[];
+  runtime: number | null;
+  tagline: string;
+}
