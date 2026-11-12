@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { isAxiosError } from "axios";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
@@ -8,10 +8,14 @@ import Skeleton from "@mui/material/Skeleton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useGetMovieDetails } from "../hooks/useGetMovieDetails";
 import { getPosterUrl } from "../utils/tmdb";
+import CocktailPairingCard from "../components/CocktailPairingCard";
+import { getMoodById, getMoodForGenres } from "../utils/moods";
+import type { MoodId } from "../types/mood";
 
 function MovieDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { data: movie, isLoading, isError, error } = useGetMovieDetails(id);
 
   const backButton = (
@@ -53,6 +57,11 @@ function MovieDetailsPage() {
 
   const posterUrl = getPosterUrl(movie.poster_path);
   const year = movie.release_date?.slice(0, 4);
+
+  const moodIdFromUrl = searchParams.get("mood") as MoodId | null;
+  const mood =
+    (moodIdFromUrl && getMoodById(moodIdFromUrl)) ||
+    getMoodForGenres(movie.genres.map((genre) => genre.id));
 
   return (
     <div>
@@ -99,6 +108,7 @@ function MovieDetailsPage() {
           <p className="leading-relaxed">
             {movie.overview || "Няма описание на български за този филм."}
           </p>
+          <CocktailPairingCard mood={mood} movieId={movie.id} />
         </div>
       </div>
     </div>

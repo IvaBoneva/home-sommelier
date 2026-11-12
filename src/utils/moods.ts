@@ -94,3 +94,7 @@ export const moods: Mood[] = [
 
 export const getMoodById = (id: MoodId): Mood | undefined =>
   moods.find((mood) => mood.id === id);
+
+export const getMoodForGenres = (genreIds: number[]): Mood =>
+  moods.find((mood) => mood.genreIds.some((id) => genreIds.includes(id))) ??
+  moods.find((mood) => mood.id === "relaxed")!;

@@ -6,20 +6,28 @@ import CardContent from "@mui/material/CardContent";
 import Rating from "@mui/material/Rating";
 import { getPosterUrl } from "../utils/tmdb";
 import type { Movie } from "../types/movie";
+import type { MoodId } from "../types/mood";
 
 interface MovieCardProps {
   movie: Movie;
 }
+interface MovieCardProps {
+  movie: Movie;
+  moodId?: MoodId;
+}
 
-function MovieCard({ movie }: MovieCardProps) {
+function MovieCard({ movie, moodId }: MovieCardProps) {
   const posterUrl = getPosterUrl(movie.poster_path);
   const year = movie.release_date?.slice(0, 4);
+  const detailsUrl = moodId
+    ? `/movies/${movie.id}?mood=${moodId}`
+    : `/movies/${movie.id}`;
 
   return (
     <Card className="h-full">
       <CardActionArea
         component={Link}
-        to={`/movies/${movie.id}`}
+        to={detailsUrl}
         className="h-full flex flex-col items-stretch"
       >
         {posterUrl ? (
