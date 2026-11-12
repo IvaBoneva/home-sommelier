@@ -6,6 +6,18 @@
       "note": "След дълъг ден в работа на компютъра, искам да се отпусна.",
       "createdAt": "2026-11-12T15:47:49.313Z",
       "id": "5YFpd9zaCxk"
+    },
+    {
+      "moodId": "thrilled",
+      "note": "Днес ми беше скучно. Искам да преборя скуката с готин филм.",
+      "createdAt": "2026-11-12T15:59:48.672Z",
+      "id": "AxQUEnLNBV4"
+    },
+    {
+      "moodId": "happy",
+      "note": "Беше напрегнат ден - нека се позабавлявам.",
+      "createdAt": "2026-11-12T16:01:17.575Z",
+      "id": "SGU85byCW2Y"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
