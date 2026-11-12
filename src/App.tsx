@@ -1,26 +1,24 @@
-import CircularProgress from "@mui/material/CircularProgress";
-import Alert from "@mui/material/Alert";
-import { useGetMoviesByGenre } from "./hooks/useGetMoviesByGenre";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import RecommendationsPage from "./pages/RecommendationsPage";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
+import CocktailPage from "./pages/CocktailPage";
+import FavoritesPage from "./pages/FavoritesPage";
+import JournalPage from "./pages/JournalPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
-  const { data: movies, isLoading, isError } = useGetMoviesByGenre(35); // 35 = комедия
-
   return (
-    <div className="max-w-xl mx-auto mt-10 px-4">
-      <h1 className="text-4xl font-bold text-rose-700 text-center mb-6">
-        HomeSommelier
-      </h1>
-
-      {isLoading && <CircularProgress />}
-      {isError && (
-        <Alert severity="error">Не успяхме да заредим филмите.</Alert>
-      )}
-
-      <ul className="list-disc pl-6">
-        {movies?.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
-      </ul>
+    <div className="max-w-5xl mx-auto mt-10 px-4">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/recommendations" element={<RecommendationsPage />} />
+        <Route path="/movies/:id" element={<MovieDetailsPage />} />
+        <Route path="/cocktails/:name" element={<CocktailPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="/journal" element={<JournalPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
 }
