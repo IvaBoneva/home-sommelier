@@ -117,7 +117,7 @@ function MovieDetailsPage() {
           <p className="leading-relaxed">
             {movie.overview || "Няма описание на български за този филм."}
           </p>
-          <CocktailPairingCard mood={mood} movieId={movie.id} />
+          <CocktailPairingCard mood={mood} movie={movie} />
         </div>
       </div>
     </div>

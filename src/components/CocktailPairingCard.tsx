@@ -10,20 +10,22 @@ import { useGetCocktailsByIngredient } from "../hooks/useGetCocktailsByIngredien
 import { pickCocktailForMovie } from "../utils/cocktails";
 import type { Mood } from "../types/mood";
 import ErrorState from "./ErrorState";
+import SaveFavoriteButton from "./SaveFavoriteButton";
+import type { MovieDetails } from "../types/movie";
 
 interface CocktailPairingCardProps {
   mood: Mood;
-  movieId: number;
+  movie: MovieDetails;
 }
 
-function CocktailPairingCard({ mood, movieId }: CocktailPairingCardProps) {
+function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
   const {
     data: cocktails,
     isLoading,
     isError,
     refetch,
   } = useGetCocktailsByIngredient(mood.cocktailIngredient);
-  const cocktail = pickCocktailForMovie(cocktails ?? [], movieId);
+  const cocktail = pickCocktailForMovie(cocktails ?? [], movie.id);
 
   return (
     <Card className="mt-8" sx={{ borderLeft: 6, borderColor: mood.color }}>
@@ -65,14 +67,20 @@ function CocktailPairingCard({ mood, movieId }: CocktailPairingCardProps) {
               {cocktail.ingredients.slice(0, 3).join(" · ")}
               {cocktail.ingredients.length > 3 && " …"}
             </p>
-            <Button
-              variant="contained"
-              className="mt-4"
-              component={Link}
-              to={`/cocktails/${encodeURIComponent(cocktail.name)}`}
-            >
-              Виж рецептата
-            </Button>
+            <div className="flex flex-wrap gap-3 mt-4">
+              <Button
+                variant="contained"
+                component={Link}
+                to={`/cocktails/${encodeURIComponent(cocktail.name)}`}
+              >
+                Виж рецептата
+              </Button>
+              <SaveFavoriteButton
+                movie={movie}
+                cocktailName={cocktail.name}
+                moodId={mood.id}
+              />
+            </div>
           </>
         )}
       </CardContent>

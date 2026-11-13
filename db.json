@@ -1,5 +1,36 @@
 {
-  "favorites": [],
+  "favorites": [
+    {
+      "movieId": 11036,
+      "movieTitle": "Тетрадката",
+      "posterPath": "/nR8HjZKXaHXiRr0foQOZ3sXFaM4.jpg",
+      "cocktailName": "ruby dutchess",
+      "moodId": "romantic",
+      "note": "",
+      "createdAt": "2026-11-13T21:22:58.731Z",
+      "id": "hitWKoDwCdw"
+    },
+    {
+      "movieId": 1204680,
+      "movieTitle": "Койота срещу Акме",
+      "posterPath": "/hoTBb4RMOlMwLdl5FKlLiAjCi9b.jpg",
+      "cocktailName": "martini cocktail",
+      "moodId": "relaxed",
+      "note": "",
+      "createdAt": "2026-11-13T21:24:58.360Z",
+      "id": "t4bTUw5KuAI"
+    },
+    {
+      "movieId": 1400837,
+      "movieTitle": "Другата мама",
+      "posterPath": "/cbEqMGFy8iwFa7exQZlcVhWSqc9.jpg",
+      "cocktailName": "apple martini",
+      "moodId": "thrilled",
+      "note": "",
+      "createdAt": "2026-11-13T21:25:37.025Z",
+      "id": "rL2t7bgUf0E"
+    }
+  ],
   "moods": [
     {
       "moodId": "relaxed",
@@ -102,6 +133,24 @@
       "note": "Искам нещо, с което да се отпусна след тежкия ден.",
       "createdAt": "2026-11-13T21:12:17.664Z",
       "id": "Mk11xJFTinE"
+    },
+    {
+      "moodId": "romantic",
+      "note": "Имаме годишнина с моя приятел днес.",
+      "createdAt": "2026-11-13T21:22:41.659Z",
+      "id": "QeyyVgVWIgg"
+    },
+    {
+      "moodId": "relaxed",
+      "note": "Уморена съм, трябва ми почивка.",
+      "createdAt": "2026-11-13T21:24:52.025Z",
+      "id": "KJ2Eo1g5B0I"
+    },
+    {
+      "moodId": "thrilled",
+      "note": "Обичам нещо, което да ме държи на нокти, да гледам.",
+      "createdAt": "2026-11-13T21:25:29.772Z",
+      "id": "tAKBTzwn-do"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
