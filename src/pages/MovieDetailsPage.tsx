@@ -1,6 +1,5 @@
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { isAxiosError } from "axios";
-import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Rating from "@mui/material/Rating";
@@ -11,12 +10,19 @@ import { getPosterUrl } from "../utils/tmdb";
 import CocktailPairingCard from "../components/CocktailPairingCard";
 import { getMoodById, getMoodForGenres } from "../utils/moods";
 import type { MoodId } from "../types/mood";
+import ErrorState from "../components/ErrorState";
 
 function MovieDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { data: movie, isLoading, isError, error } = useGetMovieDetails(id);
+  const {
+    data: movie,
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } = useGetMovieDetails(id);
 
   const backButton = (
     <Button
@@ -46,11 +52,14 @@ function MovieDetailsPage() {
     return (
       <div>
         {backButton}
-        <Alert severity="error">
-          {isNotFound
-            ? "Този филм не съществува."
-            : "Не успяхме да заредим филма. Опитай отново."}
-        </Alert>
+        <ErrorState
+          message={
+            isNotFound
+              ? "Този филм не съществува."
+              : "Не успяхме да заредим филма."
+          }
+          onRetry={isNotFound ? undefined : refetch}
+        />
       </div>
     );
   }

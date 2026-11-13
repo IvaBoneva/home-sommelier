@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
 import MoodCard from "../components/MoodCard";
 import { moods } from "../utils/moods";
 import { useAddMoodEntry } from "../hooks/useAddMoodEntry";
 import type { Mood } from "../types/mood";
+import ErrorState from "../components/ErrorState";
 
 function HomePage() {
   const [selectedMood, setSelectedMood] = useState<Mood | null>(null);
@@ -60,9 +60,7 @@ function HomePage() {
         />
 
         {isError && (
-          <Alert severity="error">
-            Не успяхме да запишем настроението. Пуснат ли е сървърът?
-          </Alert>
+          <ErrorState message="Не успяхме да запишем настроението. Пуснат ли е сървърът?" />
         )}
 
         <Button

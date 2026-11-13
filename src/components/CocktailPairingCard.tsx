@@ -9,6 +9,7 @@ import LocalBarIcon from "@mui/icons-material/LocalBar";
 import { useGetCocktailsByIngredient } from "../hooks/useGetCocktailsByIngredient";
 import { pickCocktailForMovie } from "../utils/cocktails";
 import type { Mood } from "../types/mood";
+import ErrorState from "./ErrorState";
 
 interface CocktailPairingCardProps {
   mood: Mood;
@@ -20,6 +21,7 @@ function CocktailPairingCard({ mood, movieId }: CocktailPairingCardProps) {
     data: cocktails,
     isLoading,
     isError,
+    refetch,
   } = useGetCocktailsByIngredient(mood.cocktailIngredient);
   const cocktail = pickCocktailForMovie(cocktails ?? [], movieId);
 
@@ -44,9 +46,10 @@ function CocktailPairingCard({ mood, movieId }: CocktailPairingCardProps) {
         )}
 
         {isError && (
-          <Alert severity="error">
-            Сомелиерът не успя да намери коктейл. Опитай отново.
-          </Alert>
+          <ErrorState
+            message="Сомелиерът не успя да намери коктейл."
+            onRetry={refetch}
+          />
         )}
 
         {!isLoading && !isError && !cocktail && (

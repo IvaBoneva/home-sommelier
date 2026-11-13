@@ -17,11 +17,17 @@ import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Chip from "@mui/material/Chip";
 import { toMocktailIngredients } from "../utils/mocktail";
+import ErrorState from "../components/ErrorState";
 
 function CocktailPage() {
   const { name } = useParams();
   const navigate = useNavigate();
-  const { data: cocktail, isLoading, isError } = useGetCocktailByName(name);
+  const {
+    data: cocktail,
+    isLoading,
+    isError,
+    refetch,
+  } = useGetCocktailByName(name);
   const [isMocktail, setIsMocktail] = useState(false);
 
   const backButton = (
@@ -47,9 +53,10 @@ function CocktailPage() {
     return (
       <div>
         {backButton}
-        <Alert severity="error">
-          Не успяхме да заредим рецептата. Опитай отново.
-        </Alert>
+        <ErrorState
+          message="Не успяхме да заредим рецептата."
+          onRetry={refetch}
+        />
       </div>
     );
   }

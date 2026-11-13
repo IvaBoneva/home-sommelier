@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import CircularProgress from "@mui/material/CircularProgress";
+import LoadingState from "../components/LoadingState";
+import ErrorState from "../components/ErrorState";
 import Alert from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import MovieCard from "../components/MovieCard";
@@ -26,6 +27,7 @@ function RecommendationsPage() {
     data: movies,
     isLoading,
     isError,
+    refetch,
   } = useGetMoviesByGenres(mood?.genreIds ?? []);
 
   const availableGenreIds = useMemo(
@@ -72,15 +74,12 @@ function RecommendationsPage() {
         onSortChange={setSortBy}
       />
 
-      {isLoading && (
-        <div className="flex justify-center py-10">
-          <CircularProgress />
-        </div>
-      )}
+      {isLoading && <LoadingState message="Сомелиерът подбира филми…" />}
       {isError && (
-        <Alert severity="error">
-          Не успяхме да заредим филмите. Опитай отново.
-        </Alert>
+        <ErrorState
+          message="Не успяхме да заредим филмите."
+          onRetry={refetch}
+        />
       )}
 
       {movies && (
