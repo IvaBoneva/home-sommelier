@@ -6,6 +6,11 @@ import { getMoodById } from "../utils/moods";
 import { getPosterUrl } from "../utils/tmdb";
 import { formatDate } from "../utils/date";
 import type { Favorite } from "../types/favorite";
+import { useState } from "react";
+import IconButton from "@mui/material/IconButton";
+import EditIcon from "@mui/icons-material/Edit";
+import EditNoteDialog from "./EditNoteDialog";
+import { useUpdateFavorite } from "../hooks/useUpdateFavorite";
 
 interface FavoriteCardProps {
   favorite: Favorite;
@@ -15,6 +20,26 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
   const mood = getMoodById(favorite.moodId);
   const posterUrl = getPosterUrl(favorite.posterPath, "w185");
   const movieUrl = `/movies/${favorite.movieId}?mood=${favorite.moodId}`;
+
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const {
+    mutate: updateFavorite,
+    isPending,
+    isError,
+    reset,
+  } = useUpdateFavorite();
+
+  const handleSaveNote = (note: string) => {
+    updateFavorite(
+      { ...favorite, note },
+      { onSuccess: () => setIsEditOpen(false) },
+    );
+  };
+
+  const handleCloseDialog = () => {
+    setIsEditOpen(false);
+    reset();
+  };
 
   return (
     <Card className="flex h-full">
@@ -33,10 +58,21 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
       </Link>
 
       <CardContent className="flex-1 flex flex-col gap-2">
-        <Link to={movieUrl} className="text-lg font-semibold hover:underline">
-          {favorite.movieTitle}
-        </Link>
-
+        <div className="flex items-start gap-2">
+          <Link
+            to={movieUrl}
+            className="text-lg font-semibold hover:underline flex-1"
+          >
+            {favorite.movieTitle}
+          </Link>
+          <IconButton
+            size="small"
+            onClick={() => setIsEditOpen(true)}
+            aria-label="Редактирай бележката"
+          >
+            <EditIcon fontSize="small" />
+          </IconButton>
+        </div>
         {mood && (
           <Chip
             label={`${mood.emoji} ${mood.label}`}
@@ -61,6 +97,17 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
           Запазено на {formatDate(favorite.createdAt)}
         </p>
       </CardContent>
+
+      {isEditOpen && (
+        <EditNoteDialog
+          title={favorite.movieTitle}
+          initialNote={favorite.note}
+          isSaving={isPending}
+          hasError={isError}
+          onClose={handleCloseDialog}
+          onSave={handleSaveNote}
+        />
+      )}
     </Card>
   );
 }
