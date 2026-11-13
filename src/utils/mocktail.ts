@@ -1,19 +1,26 @@
+const DESCRIPTORS =
+  "(?:(?:light|dark|white|gold|golden|spiced|aged|silver|dry|sweet|red|premium)\\s+)*";
+
+const alcohol = (names: string) =>
+  new RegExp(`\\b${DESCRIPTORS}(?:${names})\\b`, "i");
+
 const SUBSTITUTES: [RegExp, string][] = [
-  [/\b(sparkling wine|champagne|prosecco)\b/i, "sparkling grape juice"],
-  [/\b(whiskey|whisky|bourbon|scotch)\b/i, "cold black tea"],
-  [/\b(brandy|cognac)\b/i, "grape juice"],
-  [/\b(triple sec|cointreau|curacao|grand marnier)\b/i, "orange juice"],
-  [/\b(kahlua|coffee liqueur)\b/i, "cold brew coffee"],
-  [/\b(campari|aperol)\b/i, "blood orange soda"],
-  [/\bvermouth\b/i, "white grape juice"],
-  [/\bliqueur\b/i, "fruit syrup"],
-  [/\bbitters\b/i, "orange zest"],
-  [/\bvodka\b/i, "sparkling water"],
-  [/\bgin\b/i, "tonic water"],
-  [/\brum\b/i, "apple juice"],
-  [/\btequila\b/i, "lime soda"],
-  [/\bwine\b/i, "grape juice"],
-  [/\bbeer\b/i, "ginger ale"],
+  [/\bblue cura[cç]ao\b/i, "blue raspberry syrup"],
+  [alcohol("sparkling wine|champagne|prosecco"), "sparkling grape juice"],
+  [alcohol("whiskey|whisky|bourbon|scotch"), "cold black tea"],
+  [alcohol("brandy|cognac"), "grape juice"],
+  [alcohol("triple sec|cointreau|cura[cç]ao|grand marnier"), "orange juice"],
+  [alcohol("kahlua|coffee liqueur"), "cold brew coffee"],
+  [alcohol("campari|aperol"), "blood orange soda"],
+  [alcohol("vermouth"), "white grape juice"],
+  [alcohol("liqueur"), "fruit syrup"],
+  [alcohol("bitters"), "orange zest"],
+  [alcohol("vodka"), "sparkling water"],
+  [alcohol("gin"), "tonic water"],
+  [alcohol("rum"), "apple juice"],
+  [alcohol("tequila"), "lime soda"],
+  [alcohol("wine"), "grape juice"],
+  [alcohol("beer"), "ginger ale"],
 ];
 
 export interface MocktailIngredient {
