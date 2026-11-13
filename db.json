@@ -84,6 +84,12 @@
       "note": "Дъждовен ден е.",
       "createdAt": "2026-11-13T20:11:20.027Z",
       "id": "hOQx4LspqRo"
+    },
+    {
+      "moodId": "happy",
+      "note": "Бях ядосана днес - искам да разпусна.",
+      "createdAt": "2026-11-13T20:26:00.485Z",
+      "id": "QHYIZwgqdEU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
