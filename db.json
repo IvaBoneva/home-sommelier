@@ -48,6 +48,42 @@
       "note": "Искам да се посмея, че имах тежък ден.",
       "createdAt": "2026-11-12T16:55:11.223Z",
       "id": "sdE6Hvu5loM"
+    },
+    {
+      "moodId": "sad",
+      "note": "Дъждовно е...",
+      "createdAt": "2026-11-12T16:57:48.212Z",
+      "id": "Os_gKHzDhfA"
+    },
+    {
+      "moodId": "adventurous",
+      "note": "Искам нещо хващащо вниманието - спи ми се.",
+      "createdAt": "2026-11-12T16:59:35.940Z",
+      "id": "yRjx-rwDNDA"
+    },
+    {
+      "moodId": "thrilled",
+      "note": "Нещо страшно - много обичам.",
+      "createdAt": "2026-11-12T17:00:09.068Z",
+      "id": "65oMfPkxlRA"
+    },
+    {
+      "moodId": "relaxed",
+      "note": "След тежък работен ден, искам да се отпусна.",
+      "createdAt": "2026-11-12T17:00:56.935Z",
+      "id": "NaxzQKDmXL4"
+    },
+    {
+      "moodId": "happy",
+      "note": "Искам да се отпусна.",
+      "createdAt": "2026-11-12T17:10:22.274Z",
+      "id": "jxhEcoG57yI"
+    },
+    {
+      "moodId": "sad",
+      "note": "Дъждовен ден е.",
+      "createdAt": "2026-11-13T20:11:20.027Z",
+      "id": "hOQx4LspqRo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
