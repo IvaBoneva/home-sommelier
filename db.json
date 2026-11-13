@@ -1,36 +1,5 @@
 {
-  "favorites": [
-    {
-      "movieId": 11036,
-      "movieTitle": "Тетрадката",
-      "posterPath": "/nR8HjZKXaHXiRr0foQOZ3sXFaM4.jpg",
-      "cocktailName": "ruby dutchess",
-      "moodId": "romantic",
-      "note": "Гледах го с партньора си. Одобрихме коктейла :)",
-      "createdAt": "2026-11-13T21:22:58.731Z",
-      "id": "hitWKoDwCdw"
-    },
-    {
-      "movieId": 1204680,
-      "movieTitle": "Койота срещу Акме",
-      "posterPath": "/hoTBb4RMOlMwLdl5FKlLiAjCi9b.jpg",
-      "cocktailName": "martini cocktail",
-      "moodId": "relaxed",
-      "note": "",
-      "createdAt": "2026-11-13T21:24:58.360Z",
-      "id": "t4bTUw5KuAI"
-    },
-    {
-      "movieId": 1400837,
-      "movieTitle": "Другата мама",
-      "posterPath": "/cbEqMGFy8iwFa7exQZlcVhWSqc9.jpg",
-      "cocktailName": "apple martini",
-      "moodId": "thrilled",
-      "note": "",
-      "createdAt": "2026-11-13T21:25:37.025Z",
-      "id": "rL2t7bgUf0E"
-    }
-  ],
+  "favorites": [],
   "moods": [
     {
       "moodId": "relaxed",

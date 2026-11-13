@@ -11,6 +11,9 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import EditNoteDialog from "./EditNoteDialog";
 import { useUpdateFavorite } from "../hooks/useUpdateFavorite";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ConfirmDialog from "./ConfirmDialog";
+import { useDeleteFavorite } from "../hooks/useDeleteFavorite";
 
 interface FavoriteCardProps {
   favorite: Favorite;
@@ -39,6 +42,19 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
   const handleCloseDialog = () => {
     setIsEditOpen(false);
     reset();
+  };
+
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const {
+    mutate: deleteFavorite,
+    isPending: isDeleting,
+    isError: isDeleteError,
+    reset: resetDelete,
+  } = useDeleteFavorite();
+
+  const handleCloseDelete = () => {
+    setIsDeleteOpen(false);
+    resetDelete();
   };
 
   return (
@@ -71,6 +87,13 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
             aria-label="Редактирай бележката"
           >
             <EditIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            size="small"
+            onClick={() => setIsDeleteOpen(true)}
+            aria-label="Изтрий от любими"
+          >
+            <DeleteIcon fontSize="small" />
           </IconButton>
         </div>
         {mood && (
@@ -106,6 +129,17 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
           hasError={isError}
           onClose={handleCloseDialog}
           onSave={handleSaveNote}
+        />
+      )}
+
+      {isDeleteOpen && (
+        <ConfirmDialog
+          title="Да изтрием ли вечерта?"
+          message={`„${favorite.movieTitle}“ с коктейл ${favorite.cocktailName} ще бъде премахнат от любими.`}
+          isLoading={isDeleting}
+          hasError={isDeleteError}
+          onConfirm={() => deleteFavorite(favorite.id)}
+          onClose={handleCloseDelete}
         />
       )}
     </Card>
