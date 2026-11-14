@@ -4,3 +4,9 @@ export const formatDate = (isoDate: string) =>
     month: "long",
     year: "numeric",
   });
+
+export const formatTime = (isoDate: string) =>
+  new Date(isoDate).toLocaleTimeString("bg-BG", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
