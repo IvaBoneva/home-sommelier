@@ -44,6 +44,11 @@ function MoodEntriesTable({ entries }: MoodEntriesTableProps) {
                       sx={{ backgroundColor: mood.color, color: "white" }}
                     />
                   )}
+                  {entry.note && (
+                    <p className="sm:hidden text-sm text-gray-600 mt-1">
+                      {entry.note}
+                    </p>
+                  )}
                 </TableCell>
                 <TableCell className="hidden sm:table-cell text-gray-600">
                   {entry.note || (

@@ -1,5 +1,26 @@
 {
-  "favorites": [],
+  "favorites": [
+    {
+      "movieId": 808,
+      "movieTitle": "Шрек",
+      "posterPath": "/iL4u0fGsi5InY1DFjGN1ZD0qgHl.jpg",
+      "cocktailName": "aviation",
+      "moodId": "relaxed",
+      "note": "Гледах го с кака.",
+      "createdAt": "2026-11-14T19:33:33.969Z",
+      "id": "Qd4iqa-Dwkc"
+    },
+    {
+      "movieId": 1780005,
+      "movieTitle": "Оцеляване след урагана Отис",
+      "posterPath": "/lFaMt4I8LiQAGW9Rb5gfGFXbvOY.jpg",
+      "cocktailName": "farnell",
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-14T19:35:12.026Z",
+      "id": "9dspHFWecxs"
+    }
+  ],
   "moods": [
     {
       "moodId": "relaxed",
@@ -120,6 +141,18 @@
       "note": "Обичам нещо, което да ме държи на нокти, да гледам.",
       "createdAt": "2026-11-13T21:25:29.772Z",
       "id": "tAKBTzwn-do"
+    },
+    {
+      "moodId": "relaxed",
+      "note": "Уморих се, искам да разпусна.",
+      "createdAt": "2026-11-14T19:33:20.114Z",
+      "id": "wrkGVrpsKkI"
+    },
+    {
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-14T19:35:06.573Z",
+      "id": "OScEcVfBoRo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
