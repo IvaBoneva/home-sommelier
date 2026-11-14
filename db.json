@@ -19,6 +19,16 @@
       "note": "",
       "createdAt": "2026-11-14T19:35:12.026Z",
       "id": "9dspHFWecxs"
+    },
+    {
+      "movieId": 354912,
+      "movieTitle": "Тайната на Коко",
+      "posterPath": "/e4PNAJK3IkO2KSfEHbksmlVVGdM.jpg",
+      "cocktailName": "paradise",
+      "moodId": "relaxed",
+      "note": "С кака",
+      "createdAt": "2026-11-14T20:35:03.327Z",
+      "id": "f3X_FgGE9bM"
     }
   ],
   "moods": [
@@ -119,28 +129,10 @@
       "id": "4ER1pI04RcE"
     },
     {
-      "moodId": "relaxed",
-      "note": "Искам нещо, с което да се отпусна след тежкия ден.",
-      "createdAt": "2026-11-13T21:12:17.664Z",
-      "id": "Mk11xJFTinE"
-    },
-    {
       "moodId": "romantic",
       "note": "Имаме годишнина с моя приятел днес.",
       "createdAt": "2026-11-13T21:22:41.659Z",
       "id": "QeyyVgVWIgg"
-    },
-    {
-      "moodId": "relaxed",
-      "note": "Уморена съм, трябва ми почивка.",
-      "createdAt": "2026-11-13T21:24:52.025Z",
-      "id": "KJ2Eo1g5B0I"
-    },
-    {
-      "moodId": "thrilled",
-      "note": "Обичам нещо, което да ме държи на нокти, да гледам.",
-      "createdAt": "2026-11-13T21:25:29.772Z",
-      "id": "tAKBTzwn-do"
     },
     {
       "moodId": "relaxed",
