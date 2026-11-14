@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import LinearProgress from "@mui/material/LinearProgress";
@@ -10,6 +11,13 @@ interface MoodStatsProps {
 }
 
 function MoodStats({ entries }: MoodStatsProps) {
+  const [isAnimated, setIsAnimated] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsAnimated(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const counts = countByMood(entries);
   const total = entries.length;
 
@@ -31,7 +39,7 @@ function MoodStats({ entries }: MoodStatsProps) {
         </p>
 
         <div className="flex flex-col gap-3">
-          {moods.map((mood) => {
+          {moods.map((mood, index) => {
             const count = counts[mood.id] ?? 0;
             const percent = total > 0 ? Math.round((count / total) * 100) : 0;
             return (
@@ -46,11 +54,15 @@ function MoodStats({ entries }: MoodStatsProps) {
                 </div>
                 <LinearProgress
                   variant="determinate"
-                  value={percent}
+                  value={isAnimated ? percent : 0}
                   className="h-2 rounded"
                   sx={{
                     backgroundColor: "#eee",
-                    "& .MuiLinearProgress-bar": { backgroundColor: mood.color },
+                    "& .MuiLinearProgress-bar": {
+                      backgroundColor: mood.color,
+                      transition: "transform 1s ease-out",
+                      transitionDelay: `${index * 100}ms`,
+                    },
                   }}
                 />
               </div>
