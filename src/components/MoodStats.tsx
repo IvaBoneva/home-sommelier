@@ -5,6 +5,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { moods } from "../utils/moods";
 import { countByMood } from "../utils/moodStats";
 import type { MoodEntry } from "../types/mood";
+import MoodPieChart from "./MoodPieChart";
 
 interface MoodStatsProps {
   entries: MoodEntry[];
@@ -38,36 +39,40 @@ function MoodStats({ entries }: MoodStatsProps) {
           </span>
         </p>
 
-        <div className="flex flex-col gap-3">
-          {moods.map((mood, index) => {
-            const count = counts[mood.id] ?? 0;
-            const percent = total > 0 ? Math.round((count / total) * 100) : 0;
-            return (
-              <div key={mood.id}>
-                <div className="flex justify-between text-sm mb-1">
-                  <span>
-                    {mood.emoji} {mood.label}
-                  </span>
-                  <span className="text-gray-500">
-                    {count} ({percent}%)
-                  </span>
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+          <div className="flex flex-col gap-3">
+            {moods.map((mood, index) => {
+              const count = counts[mood.id] ?? 0;
+              const percent = total > 0 ? Math.round((count / total) * 100) : 0;
+              return (
+                <div key={mood.id}>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>
+                      {mood.emoji} {mood.label}
+                    </span>
+                    <span className="text-gray-500">
+                      {count} ({percent}%)
+                    </span>
+                  </div>
+                  <LinearProgress
+                    variant="determinate"
+                    value={isAnimated ? percent : 0}
+                    className="h-2 rounded"
+                    sx={{
+                      backgroundColor: "#eee",
+                      "& .MuiLinearProgress-bar": {
+                        backgroundColor: mood.color,
+                        transition: "transform 1s ease-out",
+                        transitionDelay: `${index * 100}ms`,
+                      },
+                    }}
+                  />
                 </div>
-                <LinearProgress
-                  variant="determinate"
-                  value={isAnimated ? percent : 0}
-                  className="h-2 rounded"
-                  sx={{
-                    backgroundColor: "#eee",
-                    "& .MuiLinearProgress-bar": {
-                      backgroundColor: mood.color,
-                      transition: "transform 1s ease-out",
-                      transitionDelay: `${index * 100}ms`,
-                    },
-                  }}
-                />
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
+          <MoodPieChart entries={entries} />
         </div>
       </CardContent>
     </Card>
