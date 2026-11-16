@@ -39,6 +39,16 @@
       "note": "",
       "createdAt": "2026-11-16T21:39:03.694Z",
       "id": "eL7FDnz8Pjk"
+    },
+    {
+      "movieId": 1571955,
+      "movieTitle": "Collision Course",
+      "posterPath": "/s2eAK0uiODjlNUSIiOBwdp3at2u.jpg",
+      "cocktailName": "farnell",
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-16T21:57:50.148Z",
+      "id": "xvwTKz9R-jU"
     }
   ],
   "moods": [
@@ -161,6 +171,18 @@
       "note": "I will be with my boyfriend",
       "createdAt": "2026-11-16T21:38:45.678Z",
       "id": "gc-HXMtNHAQ"
+    },
+    {
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-16T21:54:06.263Z",
+      "id": "1Tge_Qwjumo"
+    },
+    {
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-16T21:57:46.892Z",
+      "id": "9-7f5kRccAE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -50,7 +50,7 @@ function FavoritesPage() {
     return (
       <div className="text-center">
         <h1 className="text-3xl font-bold mb-2">Your Favorite Evenings</h1>
-        <p className="text-gray-500 mb-6">No saved evenings yet.</p>
+        <p className="text-muted mb-6">No saved evenings yet.</p>
         <Button variant="contained" component={Link} to="/">
           Plan your first one
         </Button>

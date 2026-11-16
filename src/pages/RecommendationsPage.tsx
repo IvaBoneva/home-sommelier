@@ -80,7 +80,7 @@ function RecommendationsPage() {
       )}
 
       {movies && (
-        <p className="text-sm text-gray-500 mb-3">
+        <p className="text-sm text-muted mb-3">
           Showing {visibleMovies.length} of {movies.length} movies
         </p>
       )}

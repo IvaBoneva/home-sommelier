@@ -77,7 +77,7 @@ function MoodEntriesTable({ entries }: MoodEntriesTableProps) {
                 <TableRow key={entry.id} hover>
                   <TableCell className="whitespace-nowrap">
                     <div>{formatDate(entry.createdAt)}</div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-muted">
                       {formatTime(entry.createdAt)}
                     </div>
                   </TableCell>
@@ -91,15 +91,15 @@ function MoodEntriesTable({ entries }: MoodEntriesTableProps) {
                       />
                     )}
                     {entry.note && (
-                      <p className="sm:hidden text-sm text-gray-600 mt-1">
+                      <p className="sm:hidden text-sm text-muted mt-1">
                         {entry.note}
                       </p>
                     )}
                   </TableCell>
 
-                  <TableCell className="hidden sm:table-cell text-gray-600">
+                  <TableCell className="hidden sm:table-cell text-muted">
                     {entry.note || (
-                      <span className="italic text-gray-400">No note</span>
+                      <span className="italic text-muted">No note</span>
                     )}
                   </TableCell>
 

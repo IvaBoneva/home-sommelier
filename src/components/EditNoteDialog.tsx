@@ -45,7 +45,7 @@ function EditNoteDialog({
           helperText={`${note.length} / ${MAX_LENGTH}`}
         />
         {hasError && (
-          <p className="text-sm text-red-600 mt-2">
+          <p className="text-sm text-red-300 mt-2">
             We couldn't save the note.
           </p>
         )}

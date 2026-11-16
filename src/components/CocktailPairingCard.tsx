@@ -61,7 +61,7 @@ function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
         {cocktail && (
           <>
             <p className="text-2xl font-bold capitalize">{cocktail.name}</p>
-            <p className="text-gray-600 mt-1">
+            <p className="text-muted mt-1">
               {cocktail.ingredients.slice(0, 3).join(" · ")}
               {cocktail.ingredients.length > 3 && " …"}
             </p>
@@ -71,7 +71,7 @@ function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
                 component={Link}
                 to={`/cocktails/${encodeURIComponent(cocktail.name)}`}
               >
-                See the recipe
+                View Recipe
               </Button>
               <SaveFavoriteButton
                 movie={movie}

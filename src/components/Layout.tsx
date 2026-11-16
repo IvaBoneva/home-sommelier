@@ -29,8 +29,8 @@ function Layout() {
             to="/"
             className="flex items-center gap-2 text-white no-underline"
           >
-            <LocalBarIcon />
-            <span className="text-xl font-bold">HomeSommelier</span>
+            <LocalBarIcon className="text-brass" />
+            <span className="text-2xl font-bold">HomeSommelier</span>
           </Link>
 
           <nav className="hidden md:flex gap-1">
@@ -72,7 +72,7 @@ function Layout() {
               to={link.to}
               end={link.to === "/"}
               onClick={() => setIsMenuOpen(false)}
-              className="[&.active]:bg-rose-100"
+              className="[&.active]:bg-wine/30"
             >
               <ListItemText primary={link.label} />
             </ListItemButton>

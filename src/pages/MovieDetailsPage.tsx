@@ -84,7 +84,7 @@ function MovieDetailsPage() {
             className="w-full rounded-xl shadow-lg"
           />
         ) : (
-          <div className="aspect-[2/3] bg-gray-200 rounded-xl flex items-center justify-center text-6xl">
+          <div className="aspect-[2/3] bg-curtain rounded-xl flex items-center justify-center text-6xl">
             🎬
           </div>
         )}
@@ -92,17 +92,17 @@ function MovieDetailsPage() {
         <div>
           <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
           {movie.tagline && (
-            <p className="italic text-gray-500 mt-1">{movie.tagline}</p>
+            <p className="italic text-muted mt-1">{movie.tagline}</p>
           )}
 
-          <p className="text-gray-600 mt-3">
+          <p className="text-muted mt-3">
             {year}
             {movie.runtime ? ` · ${movie.runtime} min` : ""}
           </p>
 
           <div className="flex items-center gap-2 mt-2">
             <Rating value={movie.vote_average / 2} precision={0.5} readOnly />
-            <span className="text-gray-600">
+            <span className="text-muted">
               {movie.vote_average.toFixed(1)} / 10
             </span>
           </div>

@@ -67,7 +67,7 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
             className="w-24 h-full object-cover"
           />
         ) : (
-          <div className="w-24 h-full bg-gray-200 flex items-center justify-center text-3xl">
+          <div className="w-24 h-full bg-curtain flex items-center justify-center text-3xl">
             🎬
           </div>
         )}
@@ -107,16 +107,16 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
 
         <Link
           to={`/cocktails/${encodeURIComponent(favorite.cocktailName)}`}
-          className="capitalize text-rose-700 hover:underline"
+          className="capitalize text-brass hover:underline"
         >
           🍸 {favorite.cocktailName}
         </Link>
 
-        <p className="text-sm italic text-gray-600">
+        <p className="text-sm italic text-muted">
           {favorite.note || "No note"}
         </p>
 
-        <p className="text-xs text-gray-400 mt-auto">
+        <p className="text-xs text-muted mt-auto">
           Saved on {formatDate(favorite.createdAt)}
         </p>
       </CardContent>

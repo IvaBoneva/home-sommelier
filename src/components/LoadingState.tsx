@@ -6,7 +6,7 @@ interface LoadingStateProps {
 
 function LoadingState({ message = "Loading…" }: LoadingStateProps) {
   return (
-    <div className="flex flex-col items-center gap-3 py-10 text-gray-500">
+    <div className="flex flex-col items-center gap-3 py-10 text-muted">
       <CircularProgress />
       <span>{message}</span>
     </div>

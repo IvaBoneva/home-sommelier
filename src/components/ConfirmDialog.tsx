@@ -30,7 +30,7 @@ function ConfirmDialog({
       <DialogContent>
         <DialogContentText>{message}</DialogContentText>
         {hasError && (
-          <p className="text-sm text-red-600 mt-2">
+          <p className="text-sm text-red-300 mt-2">
             We couldn't delete it. Please try again.
           </p>
         )}

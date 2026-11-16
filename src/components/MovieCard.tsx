@@ -38,13 +38,13 @@ function MovieCard({ movie, moodId }: MovieCardProps) {
             className="aspect-[2/3] object-cover"
           />
         ) : (
-          <div className="aspect-[2/3] bg-gray-200 flex items-center justify-center text-4xl">
+          <div className="aspect-[2/3] bg-curtain flex items-center justify-center text-4xl">
             🎬
           </div>
         )}
         <CardContent className="flex-1">
           <div className="font-semibold leading-tight">{movie.title}</div>
-          <div className="text-sm text-gray-500 mb-1">{year}</div>
+          <div className="text-sm text-muted mb-1">{year}</div>
           <Rating
             value={movie.vote_average / 2}
             precision={0.5}

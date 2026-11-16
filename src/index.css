@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Figtree", ui-sans-serif, system-ui, sans-serif;
+
+  --color-velvet: #1f1424;
+  --color-curtain: #2c1d33;
+  --color-wine: #b23a5b;
+  --color-brass: #d9a441;
+  --color-ivory: #f3e9dc;
+  --color-muted: #b8a9b9;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-velvet);
+    color: var(--color-ivory);
+    font-family: var(--font-sans);
+  }
+}

@@ -30,10 +30,10 @@ function MoodStats({ entries }: MoodStatsProps) {
   return (
     <Card className="mb-6">
       <CardContent>
-        <p className="text-gray-500">Most frequently you feel</p>
+        <p className="text-muted">Most frequently you feel</p>
         <p className="text-2xl font-bold mb-4">
           {topMood.emoji} {topMood.label}
-          <span className="text-base font-normal text-gray-500">
+          <span className="text-base font-normal text-muted">
             {" "}
             · {topCount} of {total} entries
           </span>
@@ -50,7 +50,7 @@ function MoodStats({ entries }: MoodStatsProps) {
                     <span>
                       {mood.emoji} {mood.label}
                     </span>
-                    <span className="text-gray-500">
+                    <span className="text-muted">
                       {count} ({percent}%)
                     </span>
                   </div>
@@ -59,7 +59,7 @@ function MoodStats({ entries }: MoodStatsProps) {
                     value={isAnimated ? percent : 0}
                     className="h-2 rounded"
                     sx={{
-                      backgroundColor: "#eee",
+                      backgroundColor: "#3d2b45",
                       "& .MuiLinearProgress-bar": {
                         backgroundColor: mood.color,
                         transition: "transform 1s ease-out",

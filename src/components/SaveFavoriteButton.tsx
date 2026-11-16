@@ -54,7 +54,7 @@ function SaveFavoriteButton({
       </Button>
 
       {isError && (
-        <p className="text-sm text-red-600 mt-2">
+        <p className="text-sm text-red-300 mt-2">
           Couldn't save. Please try again.
         </p>
       )}

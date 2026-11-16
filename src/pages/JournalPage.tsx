@@ -40,7 +40,7 @@ function JournalPage() {
     return (
       <div className="text-center">
         <h1 className="text-3xl font-bold mb-2">Mood Journal</h1>
-        <p className="text-gray-500 mb-6">
+        <p className="text-muted mb-6">
           No entries yet. Tell us how you feel today.
         </p>
         <Button variant="contained" component={Link} to="/">
@@ -57,7 +57,7 @@ function JournalPage() {
       <MoodStats entries={sortedEntries} />
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-        <p className="text-gray-500">Total {sortedEntries.length} entries</p>
+        <p className="text-muted">Total {sortedEntries.length} entries</p>
         <ToggleButtonGroup
           value={groupBy}
           exclusive
@@ -76,7 +76,7 @@ function JournalPage() {
             {group.title && (
               <h2 className="text-lg font-semibold mb-2">
                 {group.title}{" "}
-                <span className="text-gray-500 font-normal">
+                <span className="text-muted font-normal">
                   ({group.entries.length})
                 </span>
               </h2>

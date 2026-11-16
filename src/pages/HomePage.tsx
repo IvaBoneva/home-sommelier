@@ -34,7 +34,7 @@ function HomePage() {
       <h1 className="text-3xl font-bold text-center mb-2">
         How are you feeling today?
       </h1>
-      <p className="text-center text-gray-500 mb-8">
+      <p className="text-center text-muted mb-8">
         Pick a mood and we'll pair a movie and a cocktail for your evening.
       </p>
 
