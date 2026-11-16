@@ -36,7 +36,7 @@ function CocktailPage() {
       onClick={() => navigate(-1)}
       className="mb-4"
     >
-      Назад
+      Back
     </Button>
   );
 
@@ -53,10 +53,7 @@ function CocktailPage() {
     return (
       <div>
         {backButton}
-        <ErrorState
-          message="Не успяхме да заредим рецептата."
-          onRetry={refetch}
-        />
+        <ErrorState message="We couldn't load the recipe." onRetry={refetch} />
       </div>
     );
   }
@@ -65,7 +62,7 @@ function CocktailPage() {
     return (
       <div>
         {backButton}
-        <Alert severity="info">Не намерихме коктейл с име „{name}“.</Alert>
+        <Alert severity="info">No cocktail named “{name}” was found.</Alert>
       </div>
     );
   }
@@ -85,7 +82,7 @@ function CocktailPage() {
             {cocktail.name}
           </h1>
           {isMocktail && (
-            <Chip label="безалкохолен" color="success" size="small" />
+            <Chip label="non-alcoholic" color="success" size="small" />
           )}
         </div>
         <FormControlLabel
@@ -96,14 +93,14 @@ function CocktailPage() {
               onChange={(e) => setIsMocktail(e.target.checked)}
             />
           }
-          label="Безалкохолна версия"
+          label="Non-alcoholic version"
         />
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <Card>
           <CardContent>
-            <h2 className="text-xl font-semibold mb-2">Съставки</h2>
+            <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
             <List dense>
               {ingredients.map((ingredient) => (
                 <ListItem key={ingredient.text} disableGutters>
@@ -116,7 +113,7 @@ function CocktailPage() {
                   <ListItemText
                     primary={ingredient.text}
                     secondary={
-                      ingredient.isReplaced ? "вместо алкохол" : undefined
+                      ingredient.isReplaced ? "instead of alcohol" : undefined
                     }
                   />
                 </ListItem>
@@ -127,12 +124,12 @@ function CocktailPage() {
 
         <Card>
           <CardContent>
-            <h2 className="text-xl font-semibold mb-2">Приготвяне</h2>
+            <h2 className="text-xl font-semibold mb-2">Preparation</h2>
             <p className="leading-relaxed">{cocktail.instructions}</p>
             {isMocktail && (
               <Alert severity="success" className="mt-4">
-                Следвай същите стъпки, като използваш съставките от
-                безалкохолната версия.
+                Follow the same steps, using the ingredients from the
+                non-alcoholic version.
               </Alert>
             )}
           </CardContent>

@@ -49,10 +49,10 @@ function RecommendationsPage() {
     return (
       <div className="text-center">
         <p className="mb-4">
-          Първо избери как се чувстваш, за да ти препоръчаме нещо.
+          Pick how you feel first so we can recommend something.
         </p>
         <Button variant="contained" component={Link} to="/">
-          Избери настроение
+          Choose a mood
         </Button>
       </div>
     );
@@ -61,7 +61,7 @@ function RecommendationsPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">
-        {mood.emoji} Препоръки за {mood.label.toLowerCase()} настроение
+        {mood.emoji} For when you feel {mood.label.toLowerCase()}
       </h1>
 
       <MovieFilters
@@ -74,23 +74,20 @@ function RecommendationsPage() {
         onSortChange={setSortBy}
       />
 
-      {isLoading && <LoadingState message="Сомелиерът подбира филми…" />}
+      {isLoading && <LoadingState message="The sommelier is picking movies…" />}
       {isError && (
-        <ErrorState
-          message="Не успяхме да заредим филмите."
-          onRetry={refetch}
-        />
+        <ErrorState message="We couldn't load the movies." onRetry={refetch} />
       )}
 
       {movies && (
         <p className="text-sm text-gray-500 mb-3">
-          Показани {visibleMovies.length} от {movies.length} филма
+          Showing {visibleMovies.length} of {movies.length} movies
         </p>
       )}
 
       {movies && visibleMovies.length === 0 && (
         <Alert severity="info">
-          Няма филми, които отговарят на търсенето. Опитай с други филтри.
+          No movies match your search. Try different filters.
         </Alert>
       )}
 

@@ -32,7 +32,7 @@ function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
       <CardContent>
         <div className="flex items-center gap-2 mb-3">
           <LocalBarIcon color="primary" />
-          <h2 className="text-xl font-semibold">Коктейл за вечерта</h2>
+          <h2 className="text-xl font-semibold">Tonight's cocktail</h2>
           <Chip
             label={`${mood.emoji} ${mood.label}`}
             size="small"
@@ -49,15 +49,13 @@ function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
 
         {isError && (
           <ErrorState
-            message="Сомелиерът не успя да намери коктейл."
+            message="The sommelier couldn't find a cocktail."
             onRetry={refetch}
           />
         )}
 
         {!isLoading && !isError && !cocktail && (
-          <Alert severity="info">
-            Няма намерен коктейл за това настроение.
-          </Alert>
+          <Alert severity="info">No cocktail found for this mood.</Alert>
         )}
 
         {cocktail && (
@@ -73,7 +71,7 @@ function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
                 component={Link}
                 to={`/cocktails/${encodeURIComponent(cocktail.name)}`}
               >
-                Виж рецептата
+                See the recipe
               </Button>
               <SaveFavoriteButton
                 movie={movie}

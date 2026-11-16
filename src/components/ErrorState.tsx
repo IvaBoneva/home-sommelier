@@ -7,7 +7,7 @@ interface ErrorStateProps {
 }
 
 function ErrorState({
-  message = "Нещо се обърка. Опитай отново.",
+  message = "Something went wrong. Please try again.",
   onRetry,
 }: ErrorStateProps) {
   return (
@@ -16,7 +16,7 @@ function ErrorState({
       action={
         onRetry && (
           <Button color="inherit" size="small" onClick={onRetry}>
-            Опитай пак
+            Try Again
           </Button>
         )
       }

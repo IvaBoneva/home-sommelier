@@ -64,10 +64,10 @@ function MoodEntriesTable({ entries }: MoodEntriesTableProps) {
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell>Дата</TableCell>
-              <TableCell>Настроение</TableCell>
-              <TableCell className="hidden sm:table-cell">Бележка</TableCell>
-              <TableCell align="right">Действия</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>Mood</TableCell>
+              <TableCell className="hidden sm:table-cell">Note</TableCell>
+              <TableCell align="right">Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -99,7 +99,7 @@ function MoodEntriesTable({ entries }: MoodEntriesTableProps) {
 
                   <TableCell className="hidden sm:table-cell text-gray-600">
                     {entry.note || (
-                      <span className="italic text-gray-400">Без бележка</span>
+                      <span className="italic text-gray-400">No note</span>
                     )}
                   </TableCell>
 
@@ -107,14 +107,14 @@ function MoodEntriesTable({ entries }: MoodEntriesTableProps) {
                     <IconButton
                       size="small"
                       onClick={() => setEditingEntry(entry)}
-                      aria-label="Редактирай бележката"
+                      aria-label="Edit note"
                     >
                       <EditIcon fontSize="small" />
                     </IconButton>
                     <IconButton
                       size="small"
                       onClick={() => setDeletingEntry(entry)}
-                      aria-label="Изтрий записа"
+                      aria-label="Delete entry"
                     >
                       <DeleteIcon fontSize="small" />
                     </IconButton>
@@ -139,8 +139,8 @@ function MoodEntriesTable({ entries }: MoodEntriesTableProps) {
 
       {deletingEntry && (
         <ConfirmDialog
-          title="Да изтрием ли записа?"
-          message={`Записът „${describe(deletingEntry)}“ ще бъде премахнат от дневника.`}
+          title="Delete this entry?"
+          message={`The entry „${describe(deletingEntry)}“ will be removed from your journal.`}
           isLoading={deleteMutation.isPending}
           hasError={deleteMutation.isError}
           onConfirm={handleDelete}

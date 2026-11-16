@@ -30,7 +30,7 @@ function MovieDetailsPage() {
       onClick={() => navigate(-1)}
       className="mb-4"
     >
-      Назад
+      Back
     </Button>
   );
 
@@ -55,8 +55,8 @@ function MovieDetailsPage() {
         <ErrorState
           message={
             isNotFound
-              ? "Този филм не съществува."
-              : "Не успяхме да заредим филма."
+              ? "This movie doesn't exist."
+              : "We couldn't load this movie."
           }
           onRetry={isNotFound ? undefined : refetch}
         />
@@ -97,7 +97,7 @@ function MovieDetailsPage() {
 
           <p className="text-gray-600 mt-3">
             {year}
-            {movie.runtime ? ` · ${movie.runtime} мин.` : ""}
+            {movie.runtime ? ` · ${movie.runtime} min` : ""}
           </p>
 
           <div className="flex items-center gap-2 mt-2">
@@ -113,9 +113,9 @@ function MovieDetailsPage() {
             ))}
           </div>
 
-          <h2 className="text-xl font-semibold mt-6 mb-2">За филма</h2>
+          <h2 className="text-xl font-semibold mt-6 mb-2">About the movie</h2>
           <p className="leading-relaxed">
-            {movie.overview || "Няма описание на български за този филм."}
+            {movie.overview || "No description available."}
           </p>
           <CocktailPairingCard mood={mood} movie={movie} />
         </div>

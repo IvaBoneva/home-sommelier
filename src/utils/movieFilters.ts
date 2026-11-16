@@ -3,10 +3,10 @@ import type { Movie } from "../types/movie";
 export type MovieSortOption = "popularity" | "rating" | "newest" | "oldest";
 
 export const SORT_LABELS: Record<MovieSortOption, string> = {
-  popularity: "Най-популярни",
-  rating: "Най-висока оценка",
-  newest: "Най-нови",
-  oldest: "Най-стари",
+  popularity: "Most popular",
+  rating: "Highest rated",
+  newest: "Newest",
+  oldest: "Oldest",
 };
 
 interface MovieFilterOptions {

@@ -12,10 +12,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
 
 const navLinks = [
-  { to: "/", label: "Начало" },
-  { to: "/recommendations", label: "Препоръки" },
-  { to: "/favorites", label: "Любими" },
-  { to: "/journal", label: "Дневник" },
+  { to: "/", label: "Home" },
+  { to: "/recommendations", label: "Recommendations" },
+  { to: "/favorites", label: "Favorites" },
+  { to: "/journal", label: "Journal" },
 ];
 
 function Layout() {
@@ -52,7 +52,7 @@ function Layout() {
             color="inherit"
             className="md:hidden"
             onClick={() => setIsMenuOpen(true)}
-            aria-label="Отвори менюто"
+            aria-label="Open menu"
           >
             <MenuIcon />
           </IconButton>

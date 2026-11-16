@@ -32,10 +32,10 @@ function HomePage() {
   return (
     <div>
       <h1 className="text-3xl font-bold text-center mb-2">
-        Как се чувстваш днес?
+        How are you feeling today?
       </h1>
       <p className="text-center text-gray-500 mb-8">
-        Избери настроение и ще ти подберем филм и коктейл за вечерта.
+        Pick a mood and we'll pair a movie and a cocktail for your evening.
       </p>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -51,8 +51,8 @@ function HomePage() {
 
       <div className="max-w-xl mx-auto mt-8 flex flex-col gap-4">
         <TextField
-          label="Бележка за деня (по желание)"
-          placeholder="Например: дълъг ден в университета…"
+          label="A note about your day (optional)"
+          placeholder="e.g. A long day at uni…"
           value={note}
           onChange={(e) => setNote(e.target.value)}
           multiline
@@ -60,7 +60,7 @@ function HomePage() {
         />
 
         {isError && (
-          <ErrorState message="Не успяхме да запишем настроението. Пуснат ли е сървърът?" />
+          <ErrorState message="We couldn't save your mood. Please try again." />
         )}
 
         <Button
@@ -69,7 +69,7 @@ function HomePage() {
           disabled={!selectedMood || isPending}
           onClick={handleSubmit}
         >
-          {isPending ? "Записваме…" : "Подбери ми вечер"}
+          {isPending ? "Saving…" : "Plan my evening"}
         </Button>
       </div>
     </div>

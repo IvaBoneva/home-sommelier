@@ -50,12 +50,12 @@ function SaveFavoriteButton({
         disabled={isSaved || isPending}
         onClick={handleSave}
       >
-        {isSaved ? "Запазено в любими" : "Запази вечерта"}
+        {isSaved ? "Saved to favorites" : "Save this evening"}
       </Button>
 
       {isError && (
         <p className="text-sm text-red-600 mt-2">
-          Не успяхме да запазим. Пуснат ли е сървърът?
+          Couldn't save. Please try again.
         </p>
       )}
 
@@ -63,7 +63,7 @@ function SaveFavoriteButton({
         open={isSnackbarOpen}
         autoHideDuration={3000}
         onClose={() => setIsSnackbarOpen(false)}
-        message="Вечерта е запазена в Любими 💕"
+        message="Evening saved to Favorites 💕"
       />
     </>
   );

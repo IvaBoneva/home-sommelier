@@ -36,19 +36,23 @@ function FavoritesPage() {
     [favorites, moodFilter],
   );
 
-  if (isLoading) return <LoadingState message="Отваряме любимите ти вечери…" />;
+  if (isLoading)
+    return <LoadingState message="Opening your favorite evenings…" />;
   if (isError)
     return (
-      <ErrorState message="Не успяхме да заредим любимите." onRetry={refetch} />
+      <ErrorState
+        message="We couldn't load your favorite evenings. Please try again."
+        onRetry={refetch}
+      />
     );
 
   if (!favorites || favorites.length === 0) {
     return (
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-2">Любими</h1>
-        <p className="text-gray-500 mb-6">Още нямаш запазени вечери.</p>
+        <h1 className="text-3xl font-bold mb-2">Your Favorite Evenings</h1>
+        <p className="text-gray-500 mb-6">No saved evenings yet.</p>
         <Button variant="contained" component={Link} to="/">
-          Подбери първата
+          Plan your first one
         </Button>
       </div>
     );
@@ -56,11 +60,11 @@ function FavoritesPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Любими вечери</h1>
+      <h1 className="text-3xl font-bold mb-6">Your Favorite Evenings</h1>
 
       <div className="flex flex-wrap gap-2 mb-6">
         <Chip
-          label={`Всички (${favorites.length})`}
+          label={`All (${favorites.length})`}
           color={moodFilter === null ? "primary" : "default"}
           onClick={() => setMoodFilter(null)}
         />
@@ -77,7 +81,9 @@ function FavoritesPage() {
       </div>
 
       {visibleFavorites.length === 0 && (
-        <Alert severity="info">Няма любими с това настроение.</Alert>
+        <Alert severity="info">
+          No favorite evenings found for the selected mood.
+        </Alert>
       )}
 
       <div className="grid md:grid-cols-2 gap-4">

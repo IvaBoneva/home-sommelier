@@ -51,7 +51,7 @@ export const groupEntries = (
       key,
       title: mood
         ? `${mood.emoji} ${mood.label}`
-        : `Седмица от ${formatDate(key)}`,
+        : `Week of ${formatDate(key)}`,
       entries: groupItems,
     };
   });

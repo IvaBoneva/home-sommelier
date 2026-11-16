@@ -32,7 +32,7 @@ function MovieFilters({
     <div className="flex flex-col gap-4 mb-6">
       <div className="flex flex-col md:flex-row gap-4">
         <TextField
-          label="Търси филм"
+          label="Search movies"
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
           className="flex-1"
@@ -48,10 +48,10 @@ function MovieFilters({
         />
 
         <FormControl className="md:w-60">
-          <InputLabel id="sort-label">Подреди по</InputLabel>
+          <InputLabel id="sort-label">Sort by</InputLabel>
           <Select
             labelId="sort-label"
-            label="Подреди по"
+            label="Sort by"
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value as MovieSortOption)}
           >
@@ -66,14 +66,14 @@ function MovieFilters({
 
       <div className="flex flex-wrap gap-2">
         <Chip
-          label="Всички"
+          label="All"
           color={selectedGenreId === null ? "primary" : "default"}
           onClick={() => onGenreChange(null)}
         />
         {genreIds.map((id) => (
           <Chip
             key={id}
-            label={GENRE_LABELS[id] ?? "Друго"}
+            label={GENRE_LABELS[id] ?? "Other"}
             color={selectedGenreId === id ? "primary" : "default"}
             onClick={() => onGenreChange(id)}
           />

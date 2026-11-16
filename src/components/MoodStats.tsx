@@ -30,12 +30,12 @@ function MoodStats({ entries }: MoodStatsProps) {
   return (
     <Card className="mb-6">
       <CardContent>
-        <p className="text-gray-500">Най-често се чувстваш</p>
+        <p className="text-gray-500">Most frequently you feel</p>
         <p className="text-2xl font-bold mb-4">
           {topMood.emoji} {topMood.label}
           <span className="text-base font-normal text-gray-500">
             {" "}
-            · {topCount} от {total} записа
+            · {topCount} of {total} entries
           </span>
         </p>
 

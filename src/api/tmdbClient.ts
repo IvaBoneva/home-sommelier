@@ -6,7 +6,7 @@ const tmdbClient = axios.create({
     Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
   },
   params: {
-    language: "bg-BG",
+    language: 'en-US',
   },
 });
 

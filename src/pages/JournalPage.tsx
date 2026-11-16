@@ -27,21 +27,24 @@ function JournalPage() {
     [sortedEntries, groupBy],
   );
 
-  if (isLoading) return <LoadingState message="Отваряме дневника…" />;
+  if (isLoading) return <LoadingState message="Opening your journal…" />;
   if (isError)
     return (
-      <ErrorState message="Не успяхме да заредим дневника." onRetry={refetch} />
+      <ErrorState
+        message="We couldn't load your journal. Please try again."
+        onRetry={refetch}
+      />
     );
 
   if (sortedEntries.length === 0) {
     return (
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-2">Дневник на настроенията</h1>
+        <h1 className="text-3xl font-bold mb-2">Mood Journal</h1>
         <p className="text-gray-500 mb-6">
-          Още няма записи. Кажи ни как се чувстваш днес.
+          No entries yet. Tell us how you feel today.
         </p>
         <Button variant="contained" component={Link} to="/">
-          Към началото
+          Go to Home
         </Button>
       </div>
     );
@@ -49,21 +52,21 @@ function JournalPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Дневник на настроенията</h1>
+      <h1 className="text-3xl font-bold mb-6">Mood Journal</h1>
 
       <MoodStats entries={sortedEntries} />
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-        <p className="text-gray-500">Общо {sortedEntries.length} записа</p>
+        <p className="text-gray-500">Total {sortedEntries.length} entries</p>
         <ToggleButtonGroup
           value={groupBy}
           exclusive
           size="small"
           onChange={(_, value: GroupBy | null) => value && setGroupBy(value)}
         >
-          <ToggleButton value="none">Всички</ToggleButton>
-          <ToggleButton value="mood">По настроение</ToggleButton>
-          <ToggleButton value="week">По седмица</ToggleButton>
+          <ToggleButton value="none">All</ToggleButton>
+          <ToggleButton value="mood">By Mood</ToggleButton>
+          <ToggleButton value="week">By Week</ToggleButton>
         </ToggleButtonGroup>
       </div>
 

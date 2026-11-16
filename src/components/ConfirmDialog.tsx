@@ -18,7 +18,7 @@ interface ConfirmDialogProps {
 function ConfirmDialog({
   title,
   message,
-  confirmLabel = "Изтрий",
+  confirmLabel = "Delete",
   isLoading,
   hasError,
   onConfirm,
@@ -31,19 +31,19 @@ function ConfirmDialog({
         <DialogContentText>{message}</DialogContentText>
         {hasError && (
           <p className="text-sm text-red-600 mt-2">
-            Не успяхме да изтрием. Опитай отново.
+            We couldn't delete it. Please try again.
           </p>
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Откажи</Button>
+        <Button onClick={onClose}>Cancel</Button>
         <Button
           color="error"
           variant="contained"
           onClick={onConfirm}
           disabled={isLoading}
         >
-          {isLoading ? "Изтриваме…" : confirmLabel}
+          {isLoading ? "Deleting…" : confirmLabel}
         </Button>
       </DialogActions>
     </Dialog>

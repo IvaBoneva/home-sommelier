@@ -29,7 +29,7 @@ function EditNoteDialog({
 
   return (
     <Dialog open onClose={onClose} fullWidth maxWidth="sm">
-      <DialogTitle>Бележка за „{title}“</DialogTitle>
+      <DialogTitle>Note for “{title}”</DialogTitle>
 
       <DialogContent>
         <TextField
@@ -38,7 +38,7 @@ function EditNoteDialog({
           minRows={3}
           fullWidth
           margin="dense"
-          placeholder="С кого гледа филма? Хареса ли ти коктейлът?"
+          placeholder="Who did you watch it with? Did you like the cocktail?"
           value={note}
           onChange={(e) => setNote(e.target.value)}
           slotProps={{ htmlInput: { maxLength: MAX_LENGTH } }}
@@ -46,19 +46,19 @@ function EditNoteDialog({
         />
         {hasError && (
           <p className="text-sm text-red-600 mt-2">
-            Не успяхме да запазим бележката.
+            We couldn't save the note.
           </p>
         )}
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={onClose}>Откажи</Button>
+        <Button onClick={onClose}>Cancel</Button>
         <Button
           variant="contained"
           onClick={() => onSave(note.trim())}
           disabled={isSaving}
         >
-          {isSaving ? "Запазваме…" : "Запази"}
+          {isSaving ? "Saving…" : "Save"}
         </Button>
       </DialogActions>
     </Dialog>

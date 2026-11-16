@@ -84,14 +84,14 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
           <IconButton
             size="small"
             onClick={() => setIsEditOpen(true)}
-            aria-label="Редактирай бележката"
+            aria-label="Edit note"
           >
             <EditIcon fontSize="small" />
           </IconButton>
           <IconButton
             size="small"
             onClick={() => setIsDeleteOpen(true)}
-            aria-label="Изтрий от любими"
+            aria-label="Delete from favorites"
           >
             <DeleteIcon fontSize="small" />
           </IconButton>
@@ -113,11 +113,11 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
         </Link>
 
         <p className="text-sm italic text-gray-600">
-          {favorite.note || "Без бележка"}
+          {favorite.note || "No note"}
         </p>
 
         <p className="text-xs text-gray-400 mt-auto">
-          Запазено на {formatDate(favorite.createdAt)}
+          Saved on {formatDate(favorite.createdAt)}
         </p>
       </CardContent>
 
@@ -134,8 +134,8 @@ function FavoriteCard({ favorite }: FavoriteCardProps) {
 
       {isDeleteOpen && (
         <ConfirmDialog
-          title="Да изтрием ли вечерта?"
-          message={`„${favorite.movieTitle}“ с коктейл ${favorite.cocktailName} ще бъде премахнат от любими.`}
+          title="Delete this evening?"
+          message={`„${favorite.movieTitle}” with ${favorite.cocktailName} will be removed from your favorites.`}
           isLoading={isDeleting}
           hasError={isDeleteError}
           onConfirm={() => deleteFavorite(favorite.id)}

@@ -29,6 +29,16 @@
       "note": "С кака",
       "createdAt": "2026-11-14T20:35:03.327Z",
       "id": "f3X_FgGE9bM"
+    },
+    {
+      "movieId": 1503762,
+      "movieTitle": "Sense and Sensibility",
+      "posterPath": "/czsyPHosFNbh4PPqXfqWu1aBXnA.jpg",
+      "cocktailName": "buck's fizz",
+      "moodId": "romantic",
+      "note": "",
+      "createdAt": "2026-11-16T21:39:03.694Z",
+      "id": "eL7FDnz8Pjk"
     }
   ],
   "moods": [
@@ -145,6 +155,12 @@
       "note": "",
       "createdAt": "2026-11-14T19:35:06.573Z",
       "id": "OScEcVfBoRo"
+    },
+    {
+      "moodId": "romantic",
+      "note": "I will be with my boyfriend",
+      "createdAt": "2026-11-16T21:38:45.678Z",
+      "id": "gc-HXMtNHAQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
