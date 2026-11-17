@@ -183,6 +183,12 @@
       "note": "",
       "createdAt": "2026-11-16T21:57:46.892Z",
       "id": "9-7f5kRccAE"
+    },
+    {
+      "moodId": "thrilled",
+      "note": "",
+      "createdAt": "2026-11-17T13:30:28.078Z",
+      "id": "SfzlLC7a_zo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -18,6 +18,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Chip from "@mui/material/Chip";
 import { toMocktailIngredients } from "../utils/mocktail";
 import ErrorState from "../components/ErrorState";
+import CocktailPhoto from "../components/CocktailPhoto";
 
 function CocktailPage() {
   const { name } = useParams();
@@ -97,43 +98,49 @@ function CocktailPage() {
         />
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <Card>
-          <CardContent>
-            <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
-            <List dense>
-              {ingredients.map((ingredient) => (
-                <ListItem key={ingredient.text} disableGutters>
-                  <ListItemIcon className="!min-w-6">
-                    <FiberManualRecordIcon
-                      className="!text-xs"
-                      color={ingredient.isReplaced ? "success" : "primary"}
+      <div className="grid md:grid-cols-[280px_1fr] gap-6">
+        <CocktailPhoto
+          name={cocktail.name}
+          className="w-full aspect-square rounded-xl"
+        />
+        <div className="grid lg:grid-cols-2 gap-6">
+          <Card>
+            <CardContent>
+              <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
+              <List dense>
+                {ingredients.map((ingredient) => (
+                  <ListItem key={ingredient.text} disableGutters>
+                    <ListItemIcon className="!min-w-6">
+                      <FiberManualRecordIcon
+                        className="!text-xs"
+                        color={ingredient.isReplaced ? "success" : "primary"}
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={ingredient.text}
+                      secondary={
+                        ingredient.isReplaced ? "instead of alcohol" : undefined
+                      }
                     />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={ingredient.text}
-                    secondary={
-                      ingredient.isReplaced ? "instead of alcohol" : undefined
-                    }
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </CardContent>
-        </Card>
+                  </ListItem>
+                ))}
+              </List>
+            </CardContent>
+          </Card>
 
-        <Card>
-          <CardContent>
-            <h2 className="text-xl font-semibold mb-2">Preparation</h2>
-            <p className="leading-relaxed">{cocktail.instructions}</p>
-            {isMocktail && (
-              <Alert severity="success" className="mt-4">
-                Follow the same steps, using the ingredients from the
-                non-alcoholic version.
-              </Alert>
-            )}
-          </CardContent>
-        </Card>
+          <Card>
+            <CardContent>
+              <h2 className="text-xl font-semibold mb-2">Preparation</h2>
+              <p className="leading-relaxed">{cocktail.instructions}</p>
+              {isMocktail && (
+                <Alert severity="success" className="mt-4">
+                  Follow the same steps, using the ingredients from the
+                  non-alcoholic version.
+                </Alert>
+              )}
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

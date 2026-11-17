@@ -12,6 +12,7 @@ import type { Mood } from "../types/mood";
 import ErrorState from "./ErrorState";
 import SaveFavoriteButton from "./SaveFavoriteButton";
 import type { MovieDetails } from "../types/movie";
+import CocktailPhoto from "../components/CocktailPhoto";
 
 interface CocktailPairingCardProps {
   mood: Mood;
@@ -59,27 +60,33 @@ function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
         )}
 
         {cocktail && (
-          <>
-            <p className="text-2xl font-bold capitalize">{cocktail.name}</p>
-            <p className="text-muted mt-1">
-              {cocktail.ingredients.slice(0, 3).join(" · ")}
-              {cocktail.ingredients.length > 3 && " …"}
-            </p>
-            <div className="flex flex-wrap gap-3 mt-4">
-              <Button
-                variant="contained"
-                component={Link}
-                to={`/cocktails/${encodeURIComponent(cocktail.name)}`}
-              >
-                View Recipe
-              </Button>
-              <SaveFavoriteButton
-                movie={movie}
-                cocktailName={cocktail.name}
-                moodId={mood.id}
-              />
+          <div className="flex gap-4">
+            <CocktailPhoto
+              name={cocktail.name}
+              className="w-24 h-24 rounded-lg shrink-0"
+            />
+            <div className="min-w-0">
+              <p className="text-2xl font-bold capitalize">{cocktail.name}</p>
+              <p className="text-muted mt-1">
+                {cocktail.ingredients.slice(0, 3).join(" · ")}
+                {cocktail.ingredients.length > 3 && " …"}
+              </p>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <Button
+                  variant="contained"
+                  component={Link}
+                  to={`/cocktails/${encodeURIComponent(cocktail.name)}`}
+                >
+                  View Recipe
+                </Button>
+                <SaveFavoriteButton
+                  movie={movie}
+                  cocktailName={cocktail.name}
+                  moodId={mood.id}
+                />
+              </div>
             </div>
-          </>
+          </div>
         )}
       </CardContent>
     </Card>
