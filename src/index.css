@@ -19,3 +19,36 @@
     font-family: var(--font-sans);
   }
 }
+
+@layer components {
+  .ticket {
+    --notch: 14px;
+    --perforation: 64%;
+    -webkit-mask:
+      radial-gradient(
+          circle var(--notch) at 0 var(--perforation),
+          #0000 98%,
+          #000
+        )
+        left / 51% 100% no-repeat,
+      radial-gradient(
+          circle var(--notch) at 100% var(--perforation),
+          #0000 98%,
+          #000
+        )
+        right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(
+          circle var(--notch) at 0 var(--perforation),
+          #0000 98%,
+          #000
+        )
+        left / 51% 100% no-repeat,
+      radial-gradient(
+          circle var(--notch) at 100% var(--perforation),
+          #0000 98%,
+          #000
+        )
+        right / 51% 100% no-repeat;
+  }
+}

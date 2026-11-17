@@ -1,6 +1,5 @@
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
 import type { Mood } from "../types/mood";
 
 interface MoodCardProps {
@@ -12,7 +11,7 @@ interface MoodCardProps {
 function MoodCard({ mood, isSelected, onSelect }: MoodCardProps) {
   return (
     <Card
-      className="border-4 transition hover:-translate-y-1"
+      className="ticket h-48 border-4 transition hover:-translate-y-1"
       sx={{
         borderColor: isSelected ? mood.color : "transparent",
         "&:hover": {
@@ -20,12 +19,18 @@ function MoodCard({ mood, isSelected, onSelect }: MoodCardProps) {
         },
       }}
     >
-      <CardActionArea onClick={() => onSelect(mood)}>
-        <CardContent className="text-center">
-          <div className="text-5xl mb-2">{mood.emoji}</div>
-          <div className="text-lg font-semibold">{mood.label}</div>
-          <div className="text-sm text-muted">{mood.description}</div>
-        </CardContent>
+      <CardActionArea
+        onClick={() => onSelect(mood)}
+        className="h-full flex flex-col items-stretch"
+      >
+        <div className="h-[64%] flex flex-col items-center justify-center gap-1">
+          <span className="text-5xl">{mood.emoji}</span>
+          <span className="text-lg font-semibold">{mood.label}</span>
+        </div>
+
+        <div className="flex-1 flex items-center justify-center px-6 text-center text-sm text-muted bg-black/15 border-t-2 border-dashed border-muted/40">
+          {mood.description}
+        </div>
       </CardActionArea>
     </Card>
   );
