@@ -10,6 +10,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
+import ScrollToTop from "./ScrollToTop";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -23,6 +24,7 @@ function Layout() {
 
   return (
     <>
+      <ScrollToTop />
       <AppBar position="sticky">
         <Toolbar className="flex justify-between">
           <Link
