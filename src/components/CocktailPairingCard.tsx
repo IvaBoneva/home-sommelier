@@ -12,7 +12,7 @@ import type { Mood } from "../types/mood";
 import ErrorState from "./ErrorState";
 import SaveFavoriteButton from "./SaveFavoriteButton";
 import type { MovieDetails } from "../types/movie";
-import CocktailPhoto from "../components/CocktailPhoto";
+import CocktailPhoto from "./CocktailPhoto";
 
 interface CocktailPairingCardProps {
   mood: Mood;
@@ -40,12 +40,25 @@ function CocktailPairingCard({ mood, movie }: CocktailPairingCardProps) {
             className="ml-auto"
           />
         </div>
-
         {isLoading && (
-          <>
-            <Skeleton variant="text" width="50%" height={36} />
-            <Skeleton variant="text" width="80%" />
-          </>
+          <div className="flex gap-4">
+            <Skeleton
+              variant="rounded"
+              width={96}
+              height={96}
+              className="shrink-0"
+            />
+            <div className="flex-1">
+              <Skeleton variant="text" width="50%" height={36} />
+              <Skeleton variant="text" width="80%" />
+              <Skeleton
+                variant="rounded"
+                width={220}
+                height={36}
+                className="mt-4"
+              />
+            </div>
+          </div>
         )}
 
         {isError && (

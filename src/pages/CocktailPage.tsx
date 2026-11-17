@@ -44,8 +44,18 @@ function CocktailPage() {
   if (isLoading) {
     return (
       <div>
-        <Skeleton variant="text" width="50%" height={60} />
-        <Skeleton variant="rounded" height={200} className="mt-4" />
+        {backButton}
+        <Skeleton variant="text" width="50%" height={60} className="mb-6" />
+        <div className="grid md:grid-cols-[280px_1fr] gap-6">
+          <Skeleton
+            variant="rounded"
+            className="w-full aspect-square !h-auto"
+          />
+          <div className="grid lg:grid-cols-2 gap-6">
+            <Skeleton variant="rounded" height={240} />
+            <Skeleton variant="rounded" height={240} />
+          </div>
+        </div>
       </div>
     );
   }

@@ -37,8 +37,9 @@ function MovieDetailsPage() {
   if (isLoading) {
     return (
       <div>
+        {backButton}
         <Skeleton variant="rounded" className="!h-48 md:!h-80 mb-6" />
-        <div className="grid md:grid-cols-[300px_1fr] gap-8">
+        <div className="relative grid md:grid-cols-[300px_1fr] gap-8 md:-mt-28">
           <Skeleton variant="rounded" className="aspect-[2/3] w-full !h-auto" />
           <div>
             <Skeleton variant="text" height={50} width="70%" />
@@ -46,6 +47,7 @@ function MovieDetailsPage() {
             <Skeleton variant="rounded" height={120} className="mt-4" />
           </div>
         </div>
+        <Skeleton variant="rounded" height={160} className="mt-8" />
       </div>
     );
   }
@@ -109,7 +111,6 @@ function MovieDetailsPage() {
         )}
 
         <div>
-          {" "}
           <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
           {movie.tagline && (
             <p className="italic text-muted mt-1">{movie.tagline}</p>
@@ -133,9 +134,9 @@ function MovieDetailsPage() {
           <p className="leading-relaxed">
             {movie.overview || "No description available."}
           </p>
-          <CocktailPairingCard mood={mood} movie={movie} />
         </div>
       </div>
+      <CocktailPairingCard mood={mood} movie={movie} />
     </div>
   );
 }
