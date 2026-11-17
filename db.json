@@ -255,6 +255,30 @@
       "note": "",
       "createdAt": "2026-11-17T14:07:31.520Z",
       "id": "q3wvze0E3d0"
+    },
+    {
+      "moodId": "relaxed",
+      "note": "",
+      "createdAt": "2026-11-17T14:14:27.581Z",
+      "id": "sQRIQY5ki1Y"
+    },
+    {
+      "moodId": "happy",
+      "note": "",
+      "createdAt": "2026-11-17T14:14:43.263Z",
+      "id": "m7AnNtwluT4"
+    },
+    {
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-17T14:21:47.754Z",
+      "id": "FzNGJzOvlak"
+    },
+    {
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-17T14:28:49.294Z",
+      "id": "H2SPYexuffw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
