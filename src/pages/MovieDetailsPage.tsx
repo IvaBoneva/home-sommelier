@@ -85,58 +85,54 @@ function MovieDetailsPage() {
           <img
             src={backdropUrl}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-70"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-velvet via-velvet/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-velvet from-5% via-velvet/60 to-velvet/10" />
         </div>
       )}
 
       <div
         className={`relative grid md:grid-cols-[300px_1fr] gap-8 ${
-          backdropUrl ? "md:-mt-40" : ""
+          backdropUrl ? "md:-mt-28" : ""
         }`}
       >
         {posterUrl ? (
           <img
             src={posterUrl}
             alt={movie.title}
-            className="w-full rounded-xl shadow-lg"
+            className="w-full rounded-xl shadow-2xl ring-4 ring-velvet"
           />
         ) : (
-          <div className="aspect-[2/3] bg-curtain rounded-xl flex items-center justify-center text-6xl">
+          <div className="aspect-[2/3] bg-curtain rounded-xl ring-4 ring-velvet flex items-center justify-center text-6xl">
             🎬
           </div>
         )}
 
         <div>
+          {" "}
           <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
           {movie.tagline && (
             <p className="italic text-muted mt-1">{movie.tagline}</p>
           )}
-
           <p className="text-muted mt-3">
             {year}
             {movie.runtime ? ` · ${movie.runtime} min` : ""}
           </p>
-
           <div className="flex items-center gap-2 mt-2">
             <Rating value={movie.vote_average / 2} precision={0.5} readOnly />
             <span className="text-muted">
               {movie.vote_average.toFixed(1)} / 10
             </span>
           </div>
-
           <div className="flex flex-wrap gap-2 mt-4">
             {movie.genres.map((genre) => (
               <Chip key={genre.id} label={genre.name} variant="outlined" />
             ))}
           </div>
-
           <h2 className="text-xl font-semibold mt-6 mb-2">About the movie</h2>
           <p className="leading-relaxed">
             {movie.overview || "No description available."}
           </p>
-
           <CocktailPairingCard mood={mood} movie={movie} />
         </div>
       </div>

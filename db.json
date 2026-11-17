@@ -225,6 +225,18 @@
       "note": "",
       "createdAt": "2026-11-17T13:49:03.607Z",
       "id": "fUdalpxaVDg"
+    },
+    {
+      "moodId": "relaxed",
+      "note": "",
+      "createdAt": "2026-11-17T13:52:45.108Z",
+      "id": "GBc1zNSpvIs"
+    },
+    {
+      "moodId": "relaxed",
+      "note": "",
+      "createdAt": "2026-11-17T13:54:27.226Z",
+      "id": "4LRl3nfMX_E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
