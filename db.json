@@ -213,6 +213,18 @@
       "note": "",
       "createdAt": "2026-11-17T13:41:43.852Z",
       "id": "-VMSOUB5O_M"
+    },
+    {
+      "moodId": "sad",
+      "note": "",
+      "createdAt": "2026-11-17T13:47:20.671Z",
+      "id": "0tg_kxrlwd0"
+    },
+    {
+      "moodId": "relaxed",
+      "note": "",
+      "createdAt": "2026-11-17T13:49:03.607Z",
+      "id": "fUdalpxaVDg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

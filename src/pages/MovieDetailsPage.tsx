@@ -6,7 +6,7 @@ import Rating from "@mui/material/Rating";
 import Skeleton from "@mui/material/Skeleton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useGetMovieDetails } from "../hooks/useGetMovieDetails";
-import { getPosterUrl } from "../utils/tmdb";
+import { getBackdropUrl, getPosterUrl } from "../utils/tmdb";
 import CocktailPairingCard from "../components/CocktailPairingCard";
 import { getMoodById, getMoodForGenres } from "../utils/moods";
 import type { MoodId } from "../types/mood";
@@ -36,12 +36,15 @@ function MovieDetailsPage() {
 
   if (isLoading) {
     return (
-      <div className="grid md:grid-cols-[300px_1fr] gap-8">
-        <Skeleton variant="rounded" className="aspect-[2/3] w-full !h-auto" />
-        <div>
-          <Skeleton variant="text" height={50} width="70%" />
-          <Skeleton variant="text" width="40%" />
-          <Skeleton variant="rounded" height={120} className="mt-4" />
+      <div>
+        <Skeleton variant="rounded" className="!h-48 md:!h-80 mb-6" />
+        <div className="grid md:grid-cols-[300px_1fr] gap-8">
+          <Skeleton variant="rounded" className="aspect-[2/3] w-full !h-auto" />
+          <div>
+            <Skeleton variant="text" height={50} width="70%" />
+            <Skeleton variant="text" width="40%" />
+            <Skeleton variant="rounded" height={120} className="mt-4" />
+          </div>
         </div>
       </div>
     );
@@ -65,6 +68,7 @@ function MovieDetailsPage() {
   }
 
   const posterUrl = getPosterUrl(movie.poster_path);
+  const backdropUrl = getBackdropUrl(movie.backdrop_path);
   const year = movie.release_date?.slice(0, 4);
 
   const moodIdFromUrl = searchParams.get("mood") as MoodId | null;
@@ -76,7 +80,22 @@ function MovieDetailsPage() {
     <div>
       {backButton}
 
-      <div className="grid md:grid-cols-[300px_1fr] gap-8">
+      {backdropUrl && (
+        <div className="relative h-48 md:h-80 rounded-2xl overflow-hidden mb-6">
+          <img
+            src={backdropUrl}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-velvet via-velvet/40 to-transparent" />
+        </div>
+      )}
+
+      <div
+        className={`relative grid md:grid-cols-[300px_1fr] gap-8 ${
+          backdropUrl ? "md:-mt-40" : ""
+        }`}
+      >
         {posterUrl ? (
           <img
             src={posterUrl}
@@ -117,6 +136,7 @@ function MovieDetailsPage() {
           <p className="leading-relaxed">
             {movie.overview || "No description available."}
           </p>
+
           <CocktailPairingCard mood={mood} movie={movie} />
         </div>
       </div>

@@ -8,6 +8,7 @@ export interface Movie {
   vote_average: number;
   popularity: number;
   genre_ids: number[];
+  backdrop_path: string | null;
 }
 
 export interface TmdbPagedResponse<T> {
